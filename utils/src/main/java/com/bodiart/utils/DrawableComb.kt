@@ -11,20 +11,18 @@ import kotlinx.android.parcel.Parcelize
 /**
  * Helper class to represent drawable that should be displayed by UI View.
  */
-sealed class DrawableComb : Parcelable {
+sealed class DrawableComb {
     abstract fun buildDrawable(context: Context): Drawable?
 
     fun applyTo(imageView: ImageView) {
         imageView.setImageDrawable(buildDrawable(imageView.context))
     }
 
-    @Parcelize
     data class ResId(@DrawableRes val id: Int) : DrawableComb() {
         override fun buildDrawable(context: Context): Drawable? =
             ContextCompat.getDrawable(context, id)
     }
 
-    @Parcelize
     data class Draw(val drawable: Drawable) : DrawableComb() {
         override fun buildDrawable(context: Context): Drawable = drawable
     }
