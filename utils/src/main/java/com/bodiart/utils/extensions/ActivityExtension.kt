@@ -5,8 +5,10 @@ import android.graphics.Color
 import android.os.Build
 import android.view.View
 import android.view.WindowInsets.Type.statusBars
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import androidx.core.view.doOnLayout
 import com.bodiart.utils.TextComb
 
@@ -40,8 +42,10 @@ fun Activity.toast(textComb: TextComb, duration: Int = Toast.LENGTH_SHORT) =
 @Suppress("DEPRECATION")
 fun Activity.showContentBehindStatusBar() {
     window.apply {
-        decorView.systemUiVisibility =
-            decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        statusBarColor = Color.TRANSPARENT
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             statusBarColor = Color.BLACK
         }
