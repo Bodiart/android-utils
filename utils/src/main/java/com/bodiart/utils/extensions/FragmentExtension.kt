@@ -1,10 +1,21 @@
 package com.bodiart.utils.extensions
 
+import android.os.Build
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import com.bodiart.utils.TextComb
 import com.google.android.material.snackbar.Snackbar
+
+@Suppress("DEPRECATION")
+fun Fragment.lightStatusBar() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        activity?.window?.decorView?.systemUiVisibility?.let { currentFlags ->
+            val flags = currentFlags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            activity?.window?.decorView?.systemUiVisibility = flags
+        }
+    }
+}
 
 /**
  * Make snack in fragment

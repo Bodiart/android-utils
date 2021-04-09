@@ -5,10 +5,8 @@ import android.graphics.Color
 import android.os.Build
 import android.view.View
 import android.view.WindowInsets.Type.statusBars
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.StringRes
-import androidx.core.content.ContextCompat
 import androidx.core.view.doOnLayout
 import com.bodiart.utils.TextComb
 
@@ -41,13 +39,20 @@ fun Activity.toast(textComb: TextComb, duration: Int = Toast.LENGTH_SHORT) =
  */
 @Suppress("DEPRECATION")
 fun Activity.showContentBehindStatusBar() {
-    window.apply {
-        clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-        statusBarColor = Color.TRANSPARENT
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            statusBarColor = Color.BLACK
+    window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+    window?.statusBarColor = Color.TRANSPARENT
+}
+
+/**
+ * Light status bar.
+ */
+@Suppress("DEPRECATION")
+fun Activity.lightStatusBar() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        window?.decorView?.systemUiVisibility?.let { currentFlags ->
+            val flags = currentFlags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            window?.decorView?.systemUiVisibility = flags
         }
     }
 }
