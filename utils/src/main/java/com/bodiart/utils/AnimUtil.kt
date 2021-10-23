@@ -9,11 +9,6 @@ import com.bodiart.utils.extensions.invisibleOrGone
 import com.bodiart.utils.extensions.setGone
 import com.bodiart.utils.extensions.setVisible
 
-//import com.bodiart.utils.extensions.invisibleOrGone
-//import com.bodiart.utils.extensions.visible
-//import com.bodiart.utils.extensions.visibleOrGone
-//import com.bodiart.utils.extensions.visibleOrInvisible
-
 // Common view property values
 const val VIEW_ALPHA_TRANSPARENT = 0F
 const val VIEW_ALPHA_OPAQUE = 1F

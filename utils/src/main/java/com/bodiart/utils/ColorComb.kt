@@ -21,7 +21,7 @@ sealed class ColorComb : Parcelable {
     }
 
     @Parcelize
-    data class Str(@ColorInt val color: Int) : ColorComb() {
+    data class Color(@ColorInt val color: Int) : ColorComb() {
         override fun buildColor(context: Context): Int = color
     }
 }

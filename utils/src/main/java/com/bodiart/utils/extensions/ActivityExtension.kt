@@ -39,11 +39,20 @@ fun Activity.toast(textComb: TextComb, duration: Int = Toast.LENGTH_SHORT) =
  */
 @Suppress("DEPRECATION")
 fun Activity.showContentBehindStatusBar() {
-    window.apply {
-        decorView.systemUiVisibility =
-            decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            statusBarColor = Color.BLACK
+    window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+    window?.statusBarColor = Color.TRANSPARENT
+}
+
+/**
+ * Light status bar.
+ */
+@Suppress("DEPRECATION")
+fun Activity.lightStatusBar() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        window?.decorView?.systemUiVisibility?.let { currentFlags ->
+            val flags = currentFlags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            window?.decorView?.systemUiVisibility = flags
         }
     }
 }
