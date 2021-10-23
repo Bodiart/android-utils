@@ -2,10 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#750000"
-    tools:context="io.github.bodiart.extensions.MainActivity">
+    tools:context="io.github.bodiart.MainActivity">
+
+    <View
+        android:id="@+id/statusBarImitation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#38FF00"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:layout_width="wrap_content"
