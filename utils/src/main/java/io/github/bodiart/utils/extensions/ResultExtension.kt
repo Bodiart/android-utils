@@ -1,4 +1,4 @@
-package com.bodiart.utils.extensions
+package io.github.bodiart.utils.extensions
 
 /**
  * Processes this result value.

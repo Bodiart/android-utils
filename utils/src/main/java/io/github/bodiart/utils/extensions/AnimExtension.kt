@@ -1,4 +1,4 @@
-package com.bodiart.utils.extensions
+package io.github.bodiart.utils.extensions
 
 import android.view.animation.Animation
 

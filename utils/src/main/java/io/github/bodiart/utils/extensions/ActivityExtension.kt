@@ -1,4 +1,4 @@
-package com.bodiart.utils.extensions
+package io.github.bodiart.utils.extensions
 
 import android.app.Activity
 import android.graphics.Color
@@ -8,7 +8,7 @@ import android.view.WindowInsets.Type.statusBars
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.view.doOnLayout
-import com.bodiart.utils.TextComb
+import io.github.bodiart.utils.TextComb
 
 /**
  * Make toast from activity

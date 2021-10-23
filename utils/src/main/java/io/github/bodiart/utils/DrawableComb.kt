@@ -1,12 +1,10 @@
-package com.bodiart.utils
+package io.github.bodiart.utils
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.os.Parcelable
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
-import kotlinx.android.parcel.Parcelize
 
 /**
  * Helper class to represent drawable that should be displayed by UI View.

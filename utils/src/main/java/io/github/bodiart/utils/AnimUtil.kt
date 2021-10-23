@@ -1,13 +1,13 @@
-package com.bodiart.utils
+package io.github.bodiart.utils
 
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
-import com.bodiart.utils.extensions.invisibleOrGone
-import com.bodiart.utils.extensions.setGone
-import com.bodiart.utils.extensions.setVisible
+import io.github.bodiart.utils.extensions.invisibleOrGone
+import io.github.bodiart.utils.extensions.setGone
+import io.github.bodiart.utils.extensions.setVisible
 
 // Common view property values
 const val VIEW_ALPHA_TRANSPARENT = 0F

@@ -1,7 +1,7 @@
-package com.bodiart.utils.extensions
+package io.github.bodiart.utils.extensions
 
 import android.widget.TextSwitcher
-import com.bodiart.utils.TextComb
+import io.github.bodiart.utils.TextComb
 
 /**
  * Set text in text switcher

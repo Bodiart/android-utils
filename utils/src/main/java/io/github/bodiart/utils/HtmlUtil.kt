@@ -1,4 +1,4 @@
-package com.bodiart.utils
+package io.github.bodiart.utils
 
 import android.content.Context
 import android.os.Build

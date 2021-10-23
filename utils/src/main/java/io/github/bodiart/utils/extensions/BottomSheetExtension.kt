@@ -1,4 +1,4 @@
-package com.bodiart.utils.extensions
+package io.github.bodiart.utils.extensions
 
 import android.view.View
 import com.google.android.material.bottomsheet.BottomSheetBehavior

@@ -1,10 +1,10 @@
-package com.bodiart.utils.extensions
+package io.github.bodiart.utils.extensions
 
 import android.os.Build
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
-import com.bodiart.utils.TextComb
+import io.github.bodiart.utils.TextComb
 import com.google.android.material.snackbar.Snackbar
 
 @Suppress("DEPRECATION")

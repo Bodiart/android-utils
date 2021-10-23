@@ -1,21 +1,9 @@
-package com.bodiart.utils.extensions
+package io.github.bodiart.utils.extensions
 
-import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
-import android.os.Build
-import android.text.Html
-import android.view.View
-import android.view.inputmethod.InputMethodManager
-import android.widget.TextView
-import androidx.annotation.ColorRes
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentActivity
-import androidx.viewpager.widget.ViewPager
-import com.bodiart.utils.TextComb
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 /**
  * Get dp from int pixels.

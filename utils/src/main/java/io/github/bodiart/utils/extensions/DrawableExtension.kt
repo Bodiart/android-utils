@@ -1,4 +1,4 @@
-package com.bodiart.utils.extensions
+package io.github.bodiart.utils.extensions
 
 import android.content.Context
 import android.graphics.BlendMode
@@ -7,7 +7,7 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
-import com.bodiart.utils.ColorComb
+import io.github.bodiart.utils.ColorComb
 
 /**
  * Set drawable color from resource
