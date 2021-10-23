@@ -33,6 +33,14 @@ android {
     }
 }
 
+ext {
+    PUBLISH_GROUP_ID = 'com.github.bodiart'
+    PUBLISH_VERSION = '0.1.0'
+    PUBLISH_ARTIFACT_ID = 'utils'
+}
+
+apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
+
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
