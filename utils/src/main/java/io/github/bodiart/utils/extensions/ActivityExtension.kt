@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Build
 import android.view.View
 import android.view.WindowInsets.Type.statusBars
+import android.view.WindowInsetsController
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.view.doOnLayout
@@ -45,13 +46,54 @@ fun Activity.showContentBehindStatusBar() {
 }
 
 /**
- * Light status bar.
+ * Enables or disables light status bar
+ * @param enabled - is light status bar enabled
  */
-@Suppress("DEPRECATION")
-fun Activity.lightStatusBar() {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+fun Activity.lightStatusBarSetEnabled(enabled: Boolean) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        window?.insetsController?.setSystemBarsAppearance(
+            if (enabled) WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS else 0,
+            WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+        )
+    } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // for older versions
+        @Suppress("DEPRECATION")
         window?.decorView?.systemUiVisibility?.let { currentFlags ->
-            val flags = currentFlags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            val flags = if (enabled) {
+                currentFlags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            } else {
+                if ((currentFlags and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR) != 0) { // is light status bar right now
+                    currentFlags xor View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                } else {
+                    currentFlags
+                }
+            }
+            window?.decorView?.systemUiVisibility = flags
+        }
+    }
+}
+
+/**
+ * Enables or disables light navigation bar
+ * @param enabled - is light navigation bar enabled
+ */
+fun Activity.lightNavigationBarSetEnabled(enabled: Boolean) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        window?.insetsController?.setSystemBarsAppearance(
+            if (enabled) WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS else 0,
+            WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS
+        )
+    } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { // for older versions
+        @Suppress("DEPRECATION")
+        window?.decorView?.systemUiVisibility?.let { currentFlags ->
+            val flags = if (enabled) {
+                currentFlags or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+            } else {
+                if ((currentFlags and View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR) != 0) { // is light nav bar right now
+                    currentFlags xor View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+                } else {
+                    currentFlags
+                }
+            }
             window?.decorView?.systemUiVisibility = flags
         }
     }
