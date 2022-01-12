@@ -7,7 +7,7 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
-import io.github.bodiart.utils.ColorComb
+import io.github.bodiart.utils.entity.ColorComb
 
 /**
  * Set drawable color from resource
@@ -27,10 +27,9 @@ fun Drawable.setColorRes(context: Context, @ColorRes colorResId: Int) {
 
 /**
  * Set drawable color by color int
- * @param context - [Context]
  * @param colorInt - color int value
  */
-fun Drawable.setColorInt(context: Context, @ColorInt colorInt: Int) {
+fun Drawable.setColorInt(@ColorInt colorInt: Int) {
 
     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
         colorFilter = BlendModeColorFilter(colorInt, BlendMode.COLOR)

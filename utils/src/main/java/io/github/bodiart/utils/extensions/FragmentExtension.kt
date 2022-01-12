@@ -4,7 +4,7 @@ import android.os.Build
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
-import io.github.bodiart.utils.TextComb
+import io.github.bodiart.utils.entity.TextComb
 import com.google.android.material.snackbar.Snackbar
 
 @Suppress("DEPRECATION")

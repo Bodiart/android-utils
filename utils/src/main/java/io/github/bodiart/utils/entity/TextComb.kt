@@ -1,11 +1,12 @@
 @file:Suppress("unused")
 
-package io.github.bodiart.utils
+package io.github.bodiart.utils.entity
 
 import android.content.Context
 import android.os.Parcelable
 import android.widget.TextView
 import androidx.annotation.StringRes
+import io.github.bodiart.utils.util.buildSpannable
 import kotlinx.android.parcel.Parcelize
 
 /**

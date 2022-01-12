@@ -1,8 +1,9 @@
-package io.github.bodiart.utils
+package io.github.bodiart.utils.util
 
 import android.content.Context
 import android.os.Build
 import android.text.Html
+import io.github.bodiart.utils.entity.TextComb
 
 
 /**

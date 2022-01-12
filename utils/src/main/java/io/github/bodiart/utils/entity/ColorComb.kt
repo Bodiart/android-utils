@@ -1,4 +1,4 @@
-package io.github.bodiart.utils
+package io.github.bodiart.utils.entity
 
 import android.content.Context
 import android.os.Parcelable

@@ -9,7 +9,7 @@ import android.view.WindowInsetsController
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.view.doOnLayout
-import io.github.bodiart.utils.TextComb
+import io.github.bodiart.utils.entity.TextComb
 
 /**
  * Make toast from activity

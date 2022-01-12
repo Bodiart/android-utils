@@ -1,4 +1,4 @@
-package io.github.bodiart.utils
+package io.github.bodiart.utils.util
 
 import android.text.Spannable
 import android.text.SpannableStringBuilder
