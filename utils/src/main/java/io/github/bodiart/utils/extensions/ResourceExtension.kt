@@ -6,16 +6,32 @@ import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 
 /**
- * Get dp from int pixels.
+ * Get pixels from dp.
  */
-val Int.dp: Int
-    get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+fun Int.dpToPx(): Int {
+    return (this * Resources.getSystem().displayMetrics.density).toInt()
+}
 
 /**
- * Get dp from float pixels.
+ * Get pixels from dp.
  */
-val Float.dp: Float
-    get() = (this * Resources.getSystem().displayMetrics.density)
+fun Float.dpToPx(): Float {
+    return (this * Resources.getSystem().displayMetrics.density)
+}
+
+/**
+ * Get dp from pixels.
+ */
+fun Int.pxToDp(): Int {
+    return (this / Resources.getSystem().displayMetrics.density).toInt()
+}
+
+/**
+ * Get dp from pixels.
+ */
+fun Float.pxToDp(): Float {
+    return (this / Resources.getSystem().displayMetrics.density)
+}
 
 /**
  * Get dimension
