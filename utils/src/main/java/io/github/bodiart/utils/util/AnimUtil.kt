@@ -209,3 +209,38 @@ fun animateViewTranslationX(
     animator.duration = duration
     animator.interpolator = DecelerateInterpolator()
 }
+
+/**
+ * Change view translation Y
+ * @param animate - animate translation Y
+ * @param view - [View]
+ * @param translationY - translation Y
+ * */
+fun changeViewTranslationY(
+    animate: Boolean,
+    view: View,
+    translationY: Float,
+    duration: Long = TRANSLATION_ANIMATION_DURATION
+) {
+    view.animate().cancel()
+    if (animate) {
+        animateViewTranslationY(view, translationY, duration)
+    } else
+        view.translationY = translationY
+}
+
+/**
+ * Animate view translation Y
+ * @param view - [View]
+ * @param translationY - translation Y
+ * */
+fun animateViewTranslationY(
+    view: View,
+    translationY: Float,
+    duration: Long = TRANSLATION_ANIMATION_DURATION
+) {
+    view.animate().cancel()
+    val animator = view.animate().translationY(translationY)
+    animator.duration = duration
+    animator.interpolator = DecelerateInterpolator()
+}
