@@ -1,5 +1,6 @@
 package io.github.bodiart.utils.util
 
+import android.animation.TimeInterpolator
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import androidx.core.view.isGone
@@ -185,29 +186,38 @@ fun changeViewTranslationX(
     animate: Boolean,
     view: View,
     translationX: Float,
-    duration: Long = TRANSLATION_ANIMATION_DURATION
+    duration: Long = TRANSLATION_ANIMATION_DURATION,
+    interpolator: TimeInterpolator = DecelerateInterpolator(),
+    endAction: () -> Unit = {}
 ) {
     view.animate().cancel()
     if (animate) {
-        animateViewTranslationX(view, translationX, duration)
-    } else
+        animateViewTranslationX(view, translationX, duration, interpolator, endAction)
+    } else {
         view.translationX = translationX
+        endAction()
+    }
 }
 
 /**
  * Animate view translation X
  * @param view - [View]
  * @param translationX - translation X
+ * @param interpolator - [TimeInterpolator]
+ * @param endAction - animation end action
  * */
 fun animateViewTranslationX(
     view: View,
     translationX: Float,
-    duration: Long = TRANSLATION_ANIMATION_DURATION
+    duration: Long = TRANSLATION_ANIMATION_DURATION,
+    interpolator: TimeInterpolator = DecelerateInterpolator(),
+    endAction: () -> Unit = {}
 ) {
     view.animate().cancel()
     val animator = view.animate().translationX(translationX)
     animator.duration = duration
-    animator.interpolator = DecelerateInterpolator()
+    animator.interpolator = interpolator
+    animator.withEndAction { endAction() }
 }
 
 /**
@@ -215,32 +225,42 @@ fun animateViewTranslationX(
  * @param animate - animate translation Y
  * @param view - [View]
  * @param translationY - translation Y
+ * @param interpolator - [TimeInterpolator]
+ * @param endAction - animation end action
  * */
 fun changeViewTranslationY(
     animate: Boolean,
     view: View,
     translationY: Float,
-    duration: Long = TRANSLATION_ANIMATION_DURATION
+    duration: Long = TRANSLATION_ANIMATION_DURATION,
+    interpolator: TimeInterpolator = DecelerateInterpolator(),
+    endAction: () -> Unit = {}
 ) {
     view.animate().cancel()
     if (animate) {
-        animateViewTranslationY(view, translationY, duration)
+        animateViewTranslationY(view, translationY, duration, interpolator, endAction)
     } else
         view.translationY = translationY
+    endAction()
 }
 
 /**
  * Animate view translation Y
  * @param view - [View]
  * @param translationY - translation Y
+ * @param interpolator - [TimeInterpolator]
+ * @param endAction - animation end action
  * */
 fun animateViewTranslationY(
     view: View,
     translationY: Float,
-    duration: Long = TRANSLATION_ANIMATION_DURATION
+    duration: Long = TRANSLATION_ANIMATION_DURATION,
+    interpolator: TimeInterpolator = DecelerateInterpolator(),
+    endAction: () -> Unit = {}
 ) {
     view.animate().cancel()
     val animator = view.animate().translationY(translationY)
     animator.duration = duration
-    animator.interpolator = DecelerateInterpolator()
+    animator.interpolator = interpolator
+    animator.withEndAction { endAction() }
 }
