@@ -239,9 +239,10 @@ fun changeViewTranslationY(
     view.animate().cancel()
     if (animate) {
         animateViewTranslationY(view, translationY, duration, interpolator, endAction)
-    } else
+    } else {
         view.translationY = translationY
-    endAction()
+        endAction()
+    }
 }
 
 /**
