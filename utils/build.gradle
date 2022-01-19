@@ -6,7 +6,7 @@ plugins {
 
 ext {
     PUBLISH_GROUP_ID = 'io.github.bodiart'
-    PUBLISH_VERSION = '1.2.1'
+    PUBLISH_VERSION = '1.2.2'
     PUBLISH_ARTIFACT_ID = 'utils'
 }
 
@@ -20,7 +20,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 5
-        versionName "1.2.1"
+        versionName "1.2.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
